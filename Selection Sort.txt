@@ -1,0 +1,28 @@
+#include<stdio.h>
+void main(){
+    int n,i,j,temp,minindex,flag=0;
+    printf("enter the number of elements:");
+    scanf("%d",&n);
+    int arr[n];
+    printf("enter the elements:");
+    for(i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    for(i=0;i<=n-1;i++){
+        minindex=i;
+        for(j=i+1;j<n;j++){
+            if (arr[j]<arr[minindex]){
+                minindex=j;
+                flag=1;
+            }
+        }
+        if(flag==1){
+            temp=arr[i];
+            arr[i]=arr[minindex];
+            arr[minindex]=temp;
+        }
+    }
+    for(i=0;i<n;i++){
+        printf("%d \t",arr[i]);
+    }
+}
